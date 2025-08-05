@@ -33,47 +33,10 @@ const Home = () => {
           <button>Comprar Electrónica</button>
         </div>
       </section>
-      {/* Sección de Joyeria */}
       <section>
-        <h2>Artículos de Joyeria</h2>
+        <h2>Nuestros Productos</h2>
         {
-          jewelery.map((product) => <div key={product.id}>
-            <img src={product.image} alt={`Imagen de ${product.title}`} />
-            <h2>{product.title}</h2>
-            <p>${product.price}</p>
-            <button>Añadir al carrito</button>
-          </div>)
-        }
-      </section>
-      {/* Sección de Ropa de Mujer */}
-      <section>
-        <h2>Ropa de Mujer</h2>
-        {
-          womensClothing.map((product) => <div key={product.id}>
-            <img src={product.image} alt={`Imagen de ${product.title}`} />
-            <h2>{product.title}</h2>
-            <p>${product.price}</p>
-            <button>Añadir al carrito</button>
-          </div>)
-        }
-      </section>
-      {/* Sección de Ropa de Hombre */}
-      <section>
-        <h2>Ropa de Hombre</h2>
-        {
-          mensClothing.map((product) => <div key={product.id}>
-            <img src={product.image} alt={`Imagen de ${product.title}`} />
-            <h2>{product.title}</h2>
-            <p>${product.price}</p>
-            <button>Añadir al carrito</button>
-          </div>)
-        }
-      </section>
-      {/* Sección de Electronica */}
-      <section>
-        <h2>Artículos de Electrónica</h2>
-        {
-          electronics.map((product) => <div key={product.id}>
+          products.map((product) => <div key={product.id}>
             <img src={product.image} alt={`Imagen de ${product.title}`} />
             <h2>{product.title}</h2>
             <p>${product.price}</p>
