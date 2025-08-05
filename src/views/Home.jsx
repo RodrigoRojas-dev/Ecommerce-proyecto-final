@@ -16,11 +16,6 @@ const Home = () => {
     fetchingProducts()
   }, [])
 
-  const mensClothing = products.filter((product) => product.category === "men's clothing")
-  const electronics = products.filter((product) => product.category === "electronics")
-  const jewelery = products.filter((product) => product.category === "jewelery")
-  const womensClothing = products.filter((product) => product.category === "women's clothing")
-
   return (
     <>
       <section>
