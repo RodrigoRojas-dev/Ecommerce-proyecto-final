@@ -1,6 +1,14 @@
+import { Link } from "react-router-dom"
+
 const NotFound = () => {
   return (
-    <h1>Hola desde el NotFound</h1>
+    <>
+      <section>
+        <h1>¡Pagina no encontrada!</h1>
+        <h2>Lo sentimos, la pagina que estas buscando no existe o se movió</h2>
+        <p>Vuelve a la <Link to="/">página de inicio</Link></p>
+      </section>
+    </>
   )
 }
 
