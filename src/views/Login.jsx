@@ -5,7 +5,7 @@ const Login = () => {
     <>
       <section>
         <h1>Acceder</h1>
-        <h2>Inicia Sesión para continuar</h2>
+        <h2>Inicia Sesión para continuar.</h2>
         <form>
           <div>
             <label>Nombre de Usuario</label>
