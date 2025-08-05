@@ -23,10 +23,6 @@ const Home = () => {
           <h1>Elegancia en <span>cada detalle</span>.</h1>
           <p>Descubre una colección curada de moda, joyeria y tecnologia para quienes definen su propio estilo.</p>
         </div>
-        <div>
-          <button>Comprar Ropa</button>
-          <button>Comprar Electrónica</button>
-        </div>
       </section>
       <section>
         <h2>Nuestros Productos</h2>
