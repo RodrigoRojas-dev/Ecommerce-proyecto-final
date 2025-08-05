@@ -16,7 +16,7 @@ const Login = () => {
             <input type="password" />
           </div>
           <button>Acceder</button>
-          <Link to="/register">Crear Cuenta</Link>
+          <p>¿No tienes una cuenta? <Link to="/register">Registrate</Link></p>
         </form>
       </section>
     </>
