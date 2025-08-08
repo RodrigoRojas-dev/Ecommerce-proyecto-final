@@ -22,8 +22,12 @@ const AuthProvider = (props) => {
     }
   }
 
+  const logoutUser = () => {
+    setUser(null)
+  }
+
   return (
-    <AuthContext.Provider value={{ user, loginUser }}>
+    <AuthContext.Provider value={{ user, loginUser, logoutUser }}>
       {props.children}
     </AuthContext.Provider>
   )

@@ -3,8 +3,8 @@ import { Link } from "react-router-dom"
 import { useAuth } from "../context/AuthContext"
 
 const Login = () => {
-  const [username, setUsername] = useState()
-  const [password, setPassword] = useState()
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
   const { loginUser } = useAuth()
 
   console.log(username, password);

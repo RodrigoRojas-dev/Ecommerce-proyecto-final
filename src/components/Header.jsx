@@ -3,6 +3,11 @@ import { useAuth } from "../context/AuthContext"
 
 const Header = () => {
   const { user } = useAuth()
+  const { logoutUser } = useAuth()
+
+  const handleLogout = () => {
+    logoutUser()
+  }
 
   return (
     <header>
@@ -17,7 +22,7 @@ const Header = () => {
               <Link to="/dashboard">Dashboard</Link>
             </li>
             <li>
-              <button>Cerrar Sesión</button>
+              <button onClick={handleLogout}>Cerrar Sesión</button>
             </li>
           </nav>
         }
@@ -32,7 +37,7 @@ const Header = () => {
             </li>
           </nav>
         }
-    </div>
+      </div>
     </header >
   )
 }
