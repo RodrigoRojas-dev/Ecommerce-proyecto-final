@@ -19,6 +19,9 @@ const AuthProvider = (props) => {
     if (response.ok) {
       const token = await response.json()
       setUser(true)
+      return token
+    } else {
+      return false
     }
   }
 

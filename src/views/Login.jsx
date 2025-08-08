@@ -1,19 +1,22 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useAuth } from "../context/AuthContext"
 
 const Login = () => {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const { loginUser } = useAuth()
+  const navigate = useNavigate()
 
-  console.log(username, password);
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    loginUser(username, password)
-    setUsername("")
-    setPassword("")
+    const isLogin = await loginUser(username, password)
+
+    if (isLogin) {
+      setUsername("")
+      setPassword("")
+      navigate("/")
+    }
   }
 
   return (
