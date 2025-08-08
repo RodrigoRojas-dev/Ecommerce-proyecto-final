@@ -15,8 +15,10 @@ const Login = () => {
             <label>Contraseña</label>
             <input type="password" />
           </div>
+          <div>
           <button>Acceder</button>
           <p>¿No tienes una cuenta? <Link to="/register">Registrate</Link></p>
+          </div>
         </form>
       </section>
     </>
