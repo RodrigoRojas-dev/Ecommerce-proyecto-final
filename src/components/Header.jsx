@@ -2,8 +2,7 @@ import { Link } from "react-router-dom"
 import { useAuth } from "../context/AuthContext"
 
 const Header = () => {
-  const { user } = useAuth()
-  const { logoutUser } = useAuth()
+  const { user, logoutUser } = useAuth()
 
   const handleLogout = () => {
     logoutUser()
