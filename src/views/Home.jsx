@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext"
+import { useProducts } from "../context/ProductContext";
 
 
 const Home = () => {
-  const [products, setProducts] = useState([])
   const { user } = useAuth()
-
+  const { products } = useProducts()
 
   return (
     <>
