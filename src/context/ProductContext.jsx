@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useEffect } from "react"
 
+const generarId = () => crypto.randomUUID().replace(/[^0-9]/g, "");
 
 const ProductContext = createContext()
 
@@ -19,6 +20,26 @@ const ProductProvider = (props) => {
 
   const delProducts = (id) => {
     setProducts(products.filter(product => product.id !== id))
+  }
+
+  const createProduct = () => {
+    const response = fetch("https://fakestoreapi.com/products", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        id: parseInt(generarId)
+        title,
+        price,
+        description,
+        category,
+        image
+      })
+    })
+
+    console.log(response);
+    
   }
 
   return (
