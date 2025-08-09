@@ -6,16 +6,16 @@ const Register = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
-  console.log(username, "usuario introducido en register");
-  console.log(email, "email introducido en register");
-  console.log(password, "password introducido en register");
+  const handleSubmit = (e) => {
+    e.preventDefault()
+  }
 
   return (
     <>
       <section>
         <h1>Registrarse</h1>
         <h2>Crea tu cuenta para continuar.</h2>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div>
             <label>Nombre de Usuario</label>
             <input
