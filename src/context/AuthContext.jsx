@@ -45,12 +45,12 @@ const AuthProvider = (props) => {
       })
     })
 
-    console.log(response);
+    
 
   }
 
   return (
-    <AuthContext.Provider value={{ user, loginUser, logoutUser }}>
+    <AuthContext.Provider value={{ user, loginUser, logoutUser, registerUser }}>
       {props.children}
     </AuthContext.Provider>
   )
