@@ -1,7 +1,7 @@
 import { useProducts } from "../context/ProductContext"
 
 const Dashboard = () => {
-  const { products } = useProducts()
+  const { products, delProducts } = useProducts()
   return (
     <>
       <section>
@@ -12,7 +12,7 @@ const Dashboard = () => {
             <p>${product.price}</p>
             <div>
               <button>Actualizar</button>
-              <button>Borrar</button>
+              <button onClick={() => delProducts(product.id)}>Borrar</button>
             </div>
           </div>)
         }

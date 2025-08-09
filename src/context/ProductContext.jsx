@@ -17,8 +17,12 @@ const ProductProvider = (props) => {
     getProducts()
   }, [])
 
+  const delProducts = (id) => {
+    setProducts(products.filter(product => product.id !== id))
+  }
+
   return (
-    <ProductContext.Provider value={{ products, getProducts }}>
+    <ProductContext.Provider value={{ products, getProducts, delProducts }}>
       {props.children}
     </ProductContext.Provider>
   )
