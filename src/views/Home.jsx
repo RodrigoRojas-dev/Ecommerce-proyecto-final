@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-
+import { useAuth } from "../context/AuthContext"
 
 
 const Home = () => {
   const [products, setProducts] = useState([])
+  const { user } = useAuth()
 
   const fetchingProducts = async () => {
     const response = await fetch("https://fakestoreapi.com/products", { method: "GET" })
@@ -31,7 +32,9 @@ const Home = () => {
             <img src={product.image} alt={`Imagen de ${product.title}`} />
             <h2>{product.title}</h2>
             <p>${product.price}</p>
-            <button>Añadir al carrito</button>
+            {
+              user && <button>Añadir al carrito</button>
+            }
           </div>)
         }
       </section>
