@@ -6,16 +6,6 @@ const Home = () => {
   const [products, setProducts] = useState([])
   const { user } = useAuth()
 
-  const fetchingProducts = async () => {
-    const response = await fetch("https://fakestoreapi.com/products", { method: "GET" })
-    const data = await response.json()
-
-    setProducts(data)
-  }
-
-  useEffect(() => {
-    fetchingProducts()
-  }, [])
 
   return (
     <>
