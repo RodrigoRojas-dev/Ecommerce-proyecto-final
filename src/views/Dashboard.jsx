@@ -1,4 +1,7 @@
+import { useProducts } from "../context/ProductContext"
+
 const Dashboard = () => {
+  const { products } = useProducts()
   return (
     <>
       <section>
@@ -25,6 +28,19 @@ const Dashboard = () => {
           </div>
           <button>Añadir Producto</button>
         </form>
+      </section>
+      <section>
+        {
+          products.map((product) => <div key={product.id}>
+            <img src={product.image} alt={`Imagen de ${product.title}`} />
+            <h2>{product.title}</h2>
+            <p>${product.price}</p>
+            <div>
+              <button>Actualizar</button>
+              <button>Borrar</button>
+            </div>
+          </div>)
+        }
       </section>
     </>
   )
