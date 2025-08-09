@@ -45,8 +45,13 @@ const AuthProvider = (props) => {
       })
     })
 
-    
-
+    if (response.ok) {
+      const newUser = await response.json()
+      setUser(newUser)
+      return newUser
+    } else {
+      return false
+    }
   }
 
   return (
