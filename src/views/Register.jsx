@@ -12,6 +12,9 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     registerUser(username, email, password)
+    setUsername("")
+    setEmail("")
+    setPassword("")
   }
 
   return (
