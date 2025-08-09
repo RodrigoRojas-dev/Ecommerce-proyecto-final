@@ -1,6 +1,15 @@
+import { useState } from "react"
 import { Link } from "react-router-dom"
 
 const Register = () => {
+  const [username, setUsername] = useState("")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+
+  console.log(username, "usuario introducido en register");
+  console.log(email, "email introducido en register");
+  console.log(password, "password introducido en register");
+
   return (
     <>
       <section>
@@ -9,15 +18,27 @@ const Register = () => {
         <form>
           <div>
             <label>Nombre de Usuario</label>
-            <input type="text" />
+            <input
+              type="text"
+              onChange={(e) => { setUsername(e.target.value) }}
+              value={username}
+            />
           </div>
           <div>
             <label>Correo Electrónico</label>
-            <input type="email" />
+            <input
+              type="email"
+              onChange={(e) => { setEmail(e.target.value) }}
+              value={email}
+            />
           </div>
           <div>
             <label>Contraseña</label>
-            <input type="password" />
+            <input
+              type="password"
+              onChange={(e) => { setPassword(e.target.value) }}
+              value={password}
+            />
           </div>
           <div>
             <button>Registrar</button>
