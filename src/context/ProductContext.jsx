@@ -43,8 +43,12 @@ const ProductProvider = (props) => {
 
   }
 
+  const openPopUp = () => {
+    return setIsPopupOpen(true)
+  }
+
   return (
-    <ProductContext.Provider value={{ products, getProducts, delProducts, createProduct, isPopupOpen }}>
+    <ProductContext.Provider value={{ products, isPopupOpen, getProducts, delProducts, createProduct, openPopUp }}>
       {props.children}
     </ProductContext.Provider>
   )

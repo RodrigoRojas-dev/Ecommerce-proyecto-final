@@ -2,10 +2,15 @@ import { PopUp } from "../components/PopUp"
 import { useProducts } from "../context/ProductContext"
 
 const Dashboard = () => {
-  const { products, delProducts } = useProducts()
+  const { products, delProducts, openPopUp } = useProducts()
+
+
   return (
     <>
-      <PopUp />
+      <section>
+        <button onClick={() => openPopUp()}>Crear Producto Nuevo</button>
+        <PopUp />
+      </section>
       <section>
         {
           products.map((product) => <div key={product.id}>
