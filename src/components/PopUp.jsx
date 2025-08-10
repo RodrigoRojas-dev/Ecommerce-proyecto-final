@@ -64,3 +64,5 @@ const PopUp = () => {
     </section>
   )
 }
+
+export { PopUp }
