@@ -7,6 +7,7 @@ const ProductContext = createContext()
 const ProductProvider = (props) => {
   const [products, setProducts] = useState([])
   const [isPopupOpen, setIsPopupOpen] = useState(false)
+  const [productToEdit, setProductToEdit] = useState(null)
 
   const getProducts = async () => {
     const response = await fetch("https://fakestoreapi.com/products", { method: "GET" })
@@ -43,6 +44,11 @@ const ProductProvider = (props) => {
 
   }
 
+  const updateProduct = (product) => {
+    setProductToEdit(product)
+    setIsPopupOpen(true)
+  }
+
   const openPopUp = () => {
     return setIsPopupOpen(true)
   }
@@ -52,7 +58,7 @@ const ProductProvider = (props) => {
   }
 
   return (
-    <ProductContext.Provider value={{ products, isPopupOpen, getProducts, delProducts, createProduct, openPopUp, closePopUp }}>
+    <ProductContext.Provider value={{ products, isPopupOpen, productToEdit, getProducts, delProducts, createProduct, openPopUp, closePopUp, updateProduct }}>
       {props.children}
     </ProductContext.Provider>
   )

@@ -2,7 +2,7 @@ import { PopUp } from "../components/PopUp"
 import { useProducts } from "../context/ProductContext"
 
 const Dashboard = () => {
-  const { products, delProducts, openPopUp } = useProducts()
+  const { products, delProducts, openPopUp, updateProduct } = useProducts()
 
 
   return (
@@ -18,7 +18,7 @@ const Dashboard = () => {
             <h2>{product.title}</h2>
             <p>${product.price}</p>
             <div>
-              <button>Actualizar</button>
+              <button onClick={() => updateProduct(product)}>Actualizar</button>
               <button onClick={() => delProducts(product.id)}>Borrar</button>
             </div>
           </div>)
