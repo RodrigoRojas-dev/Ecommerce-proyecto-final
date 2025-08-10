@@ -38,12 +38,12 @@ const ProductProvider = (props) => {
       })
     })
 
-    console.log(response);
+    console.log(response, "response del createProduct");
     
   }
 
   return (
-    <ProductContext.Provider value={{ products, getProducts, delProducts }}>
+    <ProductContext.Provider value={{ products, getProducts, delProducts, createProduct }}>
       {props.children}
     </ProductContext.Provider>
   )
