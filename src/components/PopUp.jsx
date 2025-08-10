@@ -8,11 +8,15 @@ const PopUp = () => {
   const [category, setCategory] = useState("")
   const [image, setImage] = useState("")
 
-  const { createProduct } = useProducts()
+  const { isPopupOpen, createProduct } = useProducts()
 
   const handleSubmit = (e) => {
     e.preventDefault()
     createProduct(title, price, description, category, image)
+  }
+
+  if (!isPopupOpen) {
+    return null
   }
 
   return (
