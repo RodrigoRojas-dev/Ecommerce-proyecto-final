@@ -6,9 +6,9 @@ const PopUp = () => {
   const [price, setPrice] = useState(Number())
   const [description, setDescription] = useState("")
   const [category, setCategory] = useState("")
-  const [image, setImage] = useState("")
+  const [image, setImage] = useState(null)
 
-  const { isPopupOpen, createProduct } = useProducts()
+  const { isPopupOpen, createProduct, closePopUp } = useProducts()
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -61,7 +61,10 @@ const PopUp = () => {
                 value={image}
               />
             </div>
-            <button>Crear Producto</button>
+            <div>
+              <button type="submit">Crear Producto</button>
+              <button type="button" onClick={() => closePopUp()}>Cancelar</button>
+            </div>
           </form>
         </div>
       </div>
