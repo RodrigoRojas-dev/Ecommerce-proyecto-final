@@ -8,7 +8,7 @@ const PopUp = () => {
   const [category, setCategory] = useState("")
   const [image, setImage] = useState(null)
 
-  const { isPopupOpen, createProduct, closePopUp, productToEdit } = useProducts()
+  const { isPopupOpen, createProduct, closePopUp, productToEdit, updateProduct } = useProducts()
 
   useEffect(() => {
     if (productToEdit) {
@@ -26,9 +26,13 @@ const PopUp = () => {
     }
   }, [productToEdit]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    createProduct(title, price, description, category, image)
+    if (productToEdit) {
+      await updateProduct(productToEdit.id, title, price, description, category, image)
+    } else {
+      await createProduct(title, price, description, category, image)
+    }
   }
 
   if (!isPopupOpen) {

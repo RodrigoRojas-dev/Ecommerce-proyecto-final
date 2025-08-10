@@ -44,9 +44,30 @@ const ProductProvider = (props) => {
 
   }
 
-  const updateProduct = (product) => {
+  const openToEdit = (product) => {
     setProductToEdit(product)
     setIsPopupOpen(true)
+  }
+
+  const updateProduct = async (id, title, price, description, category, image) => {
+    const response = await fetch(`https://fakestoreapi.com/products/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        id,
+        title,
+        price,
+        description,
+        category,
+        image
+      })
+    })
+
+    const updatedProduct = await response.json();
+
+    setProducts(prevProducts => prevProducts.map(product => product.id === id ? updatedProduct : product))
   }
 
   const openPopUp = () => {
@@ -59,7 +80,7 @@ const ProductProvider = (props) => {
   }
 
   return (
-    <ProductContext.Provider value={{ products, isPopupOpen, productToEdit, getProducts, delProducts, createProduct, openPopUp, closePopUp, updateProduct }}>
+    <ProductContext.Provider value={{ products, isPopupOpen, productToEdit, getProducts, delProducts, createProduct, openPopUp, openToEdit, closePopUp, updateProduct }}>
       {props.children}
     </ProductContext.Provider>
   )
