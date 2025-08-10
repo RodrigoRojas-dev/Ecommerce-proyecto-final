@@ -22,14 +22,14 @@ const ProductProvider = (props) => {
     setProducts(products.filter(product => product.id !== id))
   }
 
-  const createProduct = () => {
+  const createProduct = (title, price, description, category, image) => {
     const response = fetch("https://fakestoreapi.com/products", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        id: parseInt(generarId)
+        id: parseInt(generarId),
         title,
         price,
         description,
@@ -39,7 +39,7 @@ const ProductProvider = (props) => {
     })
 
     console.log(response, "response del createProduct");
-    
+
   }
 
   return (

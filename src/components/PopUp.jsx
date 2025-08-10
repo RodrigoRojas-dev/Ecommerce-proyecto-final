@@ -57,6 +57,7 @@ const PopUp = () => {
                 value={image}
               />
             </div>
+            <button>Crear Producto</button>
           </form>
         </div>
       </div>
