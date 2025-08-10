@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useProducts } from "../context/ProductContext"
 
 const PopUp = () => {
@@ -8,7 +8,23 @@ const PopUp = () => {
   const [category, setCategory] = useState("")
   const [image, setImage] = useState(null)
 
-  const { isPopupOpen, createProduct, closePopUp } = useProducts()
+  const { isPopupOpen, createProduct, closePopUp, productToEdit } = useProducts()
+
+  useEffect(() => {
+    if (productToEdit) {
+      setTitle(productToEdit.title)
+      setPrice(Number(productToEdit.price))
+      setDescription(productToEdit.description)
+      setCategory(productToEdit.category)
+      setImage(productToEdit.image)
+    } else {
+      setTitle("")
+      setPrice(Number())
+      setDescription("")
+      setCategory("")
+      setImage(null)
+    }
+  }, [productToEdit]);
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -22,7 +38,11 @@ const PopUp = () => {
   return (
     <section>
       <div>
-        <h2>Crear Nuevo Producto</h2>
+        <h2>
+          {
+            productToEdit ? "Actualizar Producto" : "Crear Producto"
+          }
+        </h2>
         <div>
           <img src={image} alt={`Imagen de ${title}`} />
           <form onSubmit={handleSubmit}>
@@ -58,11 +78,15 @@ const PopUp = () => {
               <label>Imagen</label>
               <input type="url"
                 onChange={(e) => { setImage(e.target.value) }}
-                value={image}
+                value={image ?? ""}
               />
             </div>
             <div>
-              <button type="submit">Crear Producto</button>
+              <button type="submit">
+                {
+                  productToEdit ? "Actualizar" : "Crear"
+                }
+              </button>
               <button type="button" onClick={() => closePopUp()}>Cancelar</button>
             </div>
           </form>

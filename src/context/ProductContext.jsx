@@ -50,6 +50,7 @@ const ProductProvider = (props) => {
   }
 
   const openPopUp = () => {
+    setProductToEdit(null)
     return setIsPopupOpen(true)
   }
 
