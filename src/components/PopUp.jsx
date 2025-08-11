@@ -33,6 +33,22 @@ const PopUp = () => {
     } else {
       await createProduct(title, price, description, category, image)
     }
+
+    setTitle("")
+    setPrice(Number())
+    setDescription("")
+    setCategory("")
+    setImage(null)
+    closePopUp()
+  }
+
+  const handleCancel = () => {
+    setTitle("")
+    setPrice(Number())
+    setDescription("")
+    setCategory("")
+    setImage(null)
+    closePopUp()
   }
 
   if (!isPopupOpen) {
@@ -91,7 +107,7 @@ const PopUp = () => {
                   productToEdit ? "Actualizar" : "Crear"
                 }
               </button>
-              <button type="button" onClick={() => closePopUp()}>Cancelar</button>
+              <button type="button" onClick={handleCancel}>Cancelar</button>
             </div>
           </form>
         </div>
