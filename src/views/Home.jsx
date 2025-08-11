@@ -11,8 +11,9 @@ const Home = () => {
     <>
       <section>
         <div>
-          <h1>Elegancia en <span>cada detalle</span>.</h1>
-          <p>Descubre una colección curada de moda, joyeria y tecnologia para quienes definen su propio estilo.</p>
+          <h1><span>Atenas</span> Collection</h1>
+          <h2>Donde el estilo es atemporal.</h2>
+          <p>Una curada selección de moda, joyería y tecnología que celebra la belleza del diseño clásico y moderno.</p>
         </div>
       </section>
       <section>
