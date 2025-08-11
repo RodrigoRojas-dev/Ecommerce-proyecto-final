@@ -1,12 +1,27 @@
-# React + Vite
+# Atenas Collection
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📝 Objetivo General
 
-Currently, two official plugins are available:
+El objetivo de este proyecto es crear una tienda online funcional que implementa una serie de funcionalidades técnicas y de presentación para ofrecer una experiencia de usuario completa y dinámica.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Funcionalidades Implementadas
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 🔐 Gestión de Usuarios y Autenticación
+
+* **Registro de usuario:** Se implementó un formulario de registro que interactúa directamente con el endpoint de usuarios de la **FakeStoreAPI** para crear nuevos perfiles.
+* **Simulación de sesión:** Tras un registro exitoso, se simula el inicio de sesión a través de un estado global.
+
+---
+
+## 🏛️ Arquitectura del Proyecto
+
+A diferencia de la plantilla base, este proyecto se ha desarrollado desde cero utilizando una arquitectura de contextos para una gestión de estado más eficiente:
+
+* **`AuthContext`:** Se encarga de la lógica de autenticación de usuarios, gestionando estados como `user` y `LoginUser`.
+* **`ProductsContext`:** Este contexto se creó para centralizar toda la lógica relacionada con los productos. Incluye las siguientes funciones **CRUD** que interactúan con la **FakeStoreAPI**:
+    * `getProducts()`: Obtiene todos los productos de la API.
+    * `createProduct(product)`: Envía una solicitud para crear un nuevo producto.
+    * `updateProduct(id, title, price, description, category, image)`: Permite actualizar un producto existente.
+    * `delProduct(id)`: Elimina un producto de la base de datos.
