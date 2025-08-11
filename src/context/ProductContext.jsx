@@ -1,6 +1,12 @@
 import { createContext, useContext, useState, useEffect } from "react"
 
-const generarId = () => crypto.randomUUID().replace(/[^0-9]/g, "");
+const generarId = () => {
+  const uuidNumerico = crypto.randomUUID().replace(/[^0-9]/g, "");
+  
+  const idCorto = uuidNumerico.slice(0, 16);
+  
+  return idCorto;
+};
 
 const ProductContext = createContext()
 
