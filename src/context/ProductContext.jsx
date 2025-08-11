@@ -21,6 +21,13 @@ const ProductProvider = (props) => {
   }, [])
 
   const delProducts = (id) => {
+    const response = fetch(`https://fakestoreapi.com/products/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+
     setProducts(products.filter(product => product.id !== id))
   }
 
