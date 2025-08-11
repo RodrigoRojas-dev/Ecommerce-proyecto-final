@@ -8,6 +8,7 @@ const ProductProvider = (props) => {
   const [products, setProducts] = useState([])
   const [isPopupOpen, setIsPopupOpen] = useState(false)
   const [productToEdit, setProductToEdit] = useState(null)
+  const [nuevoID, setNuevoId] = useState(null)
 
   const getProducts = async () => {
     const response = await fetch("https://fakestoreapi.com/products", { method: "GET" })
@@ -31,14 +32,14 @@ const ProductProvider = (props) => {
     setProducts(products.filter(product => product.id !== id))
   }
 
-  const createProduct = (title, price, description, category, image) => {
-    const response = fetch("https://fakestoreapi.com/products", {
+  const createProduct = async (title, price, description, category, image) => {
+    const response = await fetch("https://fakestoreapi.com/products", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        id: parseInt(generarId),
+        id: parseInt(nuevoID),
         title,
         price,
         description,
@@ -46,6 +47,22 @@ const ProductProvider = (props) => {
         image
       })
     })
+
+    const newProduct = {
+      id: parseInt(nuevoID),
+      title,
+      price,
+      description,
+      category,
+      image
+    }
+
+    if (response.ok) {
+      const copyProducts = products.slice()
+      copyProducts.push(newProduct)
+      console.log(copyProducts);
+      setProducts(copyProducts)
+    }
 
     console.log(response, "response del createProduct");
 
@@ -78,6 +95,7 @@ const ProductProvider = (props) => {
   }
 
   const openPopUp = () => {
+    setNuevoId(generarId())
     setProductToEdit(null)
     return setIsPopupOpen(true)
   }
