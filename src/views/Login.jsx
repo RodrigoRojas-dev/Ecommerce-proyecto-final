@@ -22,8 +22,21 @@ const Login = () => {
   return (
     <>
       <section>
-        <h1>Acceder</h1>
-        <h2>Inicia Sesión para continuar.</h2>
+        <div>
+          <h1>Acceder</h1>
+          <h2>Inicia Sesión para continuar.</h2>
+        </div>
+        <div>
+          <h3>Credenciales de prueba:</h3>
+          <p>
+            <strong>Usuario:</strong>
+            johnd
+          </p>
+          <p>
+            <strong>Contraseña:</strong>
+            m38rmF$
+          </p>
+        </div>
         <form onSubmit={handleSubmit}>
           <div>
             <label>Nombre de Usuario</label>
