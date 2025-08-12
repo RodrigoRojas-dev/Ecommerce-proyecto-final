@@ -29,7 +29,7 @@ const Register = () => {
       setError("La contraseña es obligatoria.");
       return;
     }
-    
+
     if (password.length < 6) {
       setError("La contraseña debe tener al menos 6 caracteres.");
       return;
@@ -38,13 +38,9 @@ const Register = () => {
     const isRegister = await registerUser(username, email, password)
 
     if (isRegister) {
-      setUsername("")
-      setEmail("")
-      setPassword("")
       navigate("/")
     } else {
-      setUsername("")
-      setEmail("")
+      setError("El registro falló. Revisa tus datos y vuelve a intentarlo.");
       setPassword("")
     }
   }
