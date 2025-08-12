@@ -6,12 +6,35 @@ const Register = () => {
   const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [error, setError] = useState("")
   const navigate = useNavigate()
 
   const { registerUser } = useAuth()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setError("")
+
+    if (!username) {
+      setError("El nombre de usuario es obligatorio.");
+      return;
+    }
+
+    if (!email) {
+      setError("El correo electrónico es obligatorio.");
+      return;
+    }
+
+    if (!password) {
+      setError("La contraseña es obligatoria.");
+      return;
+    }
+    
+    if (password.length < 6) {
+      setError("La contraseña debe tener al menos 6 caracteres.");
+      return;
+    }
+
     const isRegister = await registerUser(username, email, password)
 
     if (isRegister) {
@@ -56,6 +79,11 @@ const Register = () => {
               value={password}
             />
           </div>
+          {
+            error && <div>
+              <p>{error}</p>
+            </div>
+          }
           <div>
             <button>Registrar</button>
             <p>¿Ya tienes una cuenta? <Link to="/login">Inicia Sesión</Link></p>
