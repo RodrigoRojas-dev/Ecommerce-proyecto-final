@@ -9,7 +9,7 @@ const AuthProvider = (props) => {
   const generarId = () => crypto.randomUUID().replace(/[^0-9]/g, "");
 
   const validateUser = (username, password) => {
-    if (!username) {
+    if (!username || username.trim() === "") {
       return "El nombre de usuario es obligatorio"
     }
 
