@@ -1,11 +1,11 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { useAuth } from "../context/AuthContext"
 
 const Login = () => {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
-  const { loginUser } = useAuth()
+  const { loginUser, errorMessage, user } = useAuth()
   const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
@@ -15,9 +15,14 @@ const Login = () => {
     if (isLogin) {
       setUsername("")
       setPassword("")
-      navigate("/")
     }
   }
+
+  useEffect(() => {
+    if (user) {
+      navigate("/")
+    }
+  }, [user, navigate])
 
   return (
     <>
@@ -37,6 +42,11 @@ const Login = () => {
             m38rmF$
           </p>
         </div>
+        {
+          errorMessage && <div>
+            <p>{errorMessage}</p>
+          </div>
+        }
         <form onSubmit={handleSubmit}>
           <div>
             <label>Nombre de Usuario</label>

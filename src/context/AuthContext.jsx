@@ -4,10 +4,39 @@ const AuthContext = createContext()
 
 const AuthProvider = (props) => {
   const [user, setUser] = useState(null)
+  const [errorMessage, setErrorMessage] = useState(null)
 
   const generarId = () => crypto.randomUUID().replace(/[^0-9]/g, "");
 
+  const validateUser = (username, password) => {
+    if (!username) {
+      return "El nombre de usuario es obligatorio"
+    }
+
+    if (username.length < 4 || username.length > 20) {
+      return "El nombre de usuario debe tener entre 4 y 20 caracteres."
+    }
+
+    if (!password) {
+      return "La contraseña es obligatoria"
+    }
+
+    if (password.length < 6) {
+      return "La contraseña debe tener un minimo de 6 caracteres"
+    }
+
+    return null
+  }
+
   const loginUser = async (username, password) => {
+    const error = validateUser(username, password)
+
+    if (error) {
+      setErrorMessage(error)
+      return;
+    }
+    setErrorMessage(null);
+
     const response = await fetch("https://fakestoreapi.com/auth/login", {
       method: "POST",
       headers: {
@@ -53,7 +82,7 @@ const AuthProvider = (props) => {
   }
 
   return (
-    <AuthContext.Provider value={{ user, loginUser, logoutUser, registerUser }}>
+    <AuthContext.Provider value={{ user, loginUser, logoutUser, registerUser, errorMessage }}>
       {props.children}
     </AuthContext.Provider>
   )

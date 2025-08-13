@@ -1,21 +1,21 @@
 # Atenas Collection
 
-## 📝 Objetivo General
+## Objetivo General
 
 El objetivo de este proyecto es crear una tienda online funcional que implementa una serie de funcionalidades técnicas y de presentación para ofrecer una experiencia de usuario completa y dinámica.
 
 ---
 
-## 🚀 Funcionalidades Implementadas
+## Funcionalidades Implementadas
 
-### 🔐 Gestión de Usuarios y Autenticación
+### Gestión de Usuarios y Autenticación
 
 * **Registro de usuario:** Se implementó un formulario de registro que interactúa directamente con el endpoint de usuarios de la **FakeStoreAPI** para crear nuevos perfiles.
 * **Simulación de sesión:** Tras un registro exitoso, se simula el inicio de sesión a través de un estado global.
 
 ---
 
-## 🏛️ Arquitectura del Proyecto
+## Arquitectura del Proyecto
 
 A diferencia de la plantilla base, este proyecto se ha desarrollado desde cero utilizando una arquitectura de contextos para una gestión de estado más eficiente:
 
