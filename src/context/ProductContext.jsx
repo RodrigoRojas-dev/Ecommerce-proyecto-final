@@ -2,9 +2,9 @@ import { createContext, useContext, useState, useEffect } from "react"
 
 const generarId = () => {
   const uuidNumerico = crypto.randomUUID().replace(/[^0-9]/g, "");
-  
+
   const idCorto = uuidNumerico.slice(0, 16);
-  
+
   return idCorto;
 };
 
@@ -15,6 +15,7 @@ const ProductProvider = (props) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false)
   const [productToEdit, setProductToEdit] = useState(null)
   const [nuevoID, setNuevoId] = useState(null)
+  const [errorMessage, setErrorMessage] = useState(null)
 
   const getProducts = async () => {
     const response = await fetch("https://fakestoreapi.com/products", { method: "GET" })
@@ -26,6 +27,28 @@ const ProductProvider = (props) => {
   useEffect(() => {
     getProducts()
   }, [])
+
+  const validateProduct = (title, price, description, category, image) => {
+    if (!title) {
+      return "El título es requerido.";
+    }
+    if (!price || isNaN(price)) {
+      return "El precio es un campo numérico y es requerido.";
+    }
+    if (!description) {
+      return "La descripción es requerida.";
+    }
+    if (!category) {
+      return "La categoría es requerida.";
+    }
+    const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
+    if (!image || !urlRegex.test(image)) {
+      return "La URL de la imagen no es válida o es requerida.";
+    }
+    return null;
+  };
+
+
 
   const delProducts = (id) => {
     const response = fetch(`https://fakestoreapi.com/products/${id}`, {
@@ -39,6 +62,13 @@ const ProductProvider = (props) => {
   }
 
   const createProduct = async (title, price, description, category, image) => {
+    const error = validateProduct(title, price, description, category, image);
+    if (error) {
+      setErrorMessage(error);
+      return;
+    }
+    setErrorMessage(null);
+
     const response = await fetch("https://fakestoreapi.com/products", {
       method: "POST",
       headers: {
@@ -80,6 +110,13 @@ const ProductProvider = (props) => {
   }
 
   const updateProduct = async (id, title, price, description, category, image) => {
+    const error = validateProduct(title, price, description, category, image);
+    if (error) {
+      setErrorMessage(error);
+      return;
+    }
+    setErrorMessage(null);
+
     const response = await fetch(`https://fakestoreapi.com/products/${id}`, {
       method: "PUT",
       headers: {
@@ -103,15 +140,17 @@ const ProductProvider = (props) => {
   const openPopUp = () => {
     setNuevoId(generarId())
     setProductToEdit(null)
+    setErrorMessage(null)
     return setIsPopupOpen(true)
   }
 
   const closePopUp = () => {
+    setErrorMessage(null)
     return setIsPopupOpen(false)
   }
 
   return (
-    <ProductContext.Provider value={{ products, isPopupOpen, productToEdit, getProducts, delProducts, createProduct, openPopUp, openToEdit, closePopUp, updateProduct }}>
+    <ProductContext.Provider value={{ products, isPopupOpen, productToEdit, getProducts, delProducts, createProduct, openPopUp, openToEdit, closePopUp, updateProduct, errorMessage }}>
       {props.children}
     </ProductContext.Provider>
   )

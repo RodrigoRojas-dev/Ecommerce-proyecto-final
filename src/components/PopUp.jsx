@@ -8,7 +8,7 @@ const PopUp = () => {
   const [category, setCategory] = useState("")
   const [image, setImage] = useState(null)
 
-  const { isPopupOpen, createProduct, closePopUp, productToEdit, updateProduct } = useProducts()
+  const { isPopupOpen, createProduct, closePopUp, productToEdit, updateProduct, errorMessage } = useProducts()
 
   useEffect(() => {
     if (productToEdit) {
@@ -26,6 +26,17 @@ const PopUp = () => {
     }
   }, [productToEdit]);
 
+  useEffect(() => {
+    if (isPopupOpen && errorMessage === null) {
+      setTitle("");
+      setPrice(Number());
+      setDescription("");
+      setCategory("");
+      setImage(null);
+      closePopUp();
+    }
+  }, [errorMessage]);
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (productToEdit) {
@@ -33,13 +44,6 @@ const PopUp = () => {
     } else {
       await createProduct(title, price, description, category, image)
     }
-
-    setTitle("")
-    setPrice(Number())
-    setDescription("")
-    setCategory("")
-    setImage(null)
-    closePopUp()
   }
 
   const handleCancel = () => {
@@ -63,6 +67,11 @@ const PopUp = () => {
             productToEdit ? "Actualizar Producto" : "Crear Producto"
           }
         </h2>
+        {
+          errorMessage && <div>
+            <p>{errorMessage}</p>
+          </div>
+        }
         <div>
           <img src={image} alt={`Imagen de ${title}`} />
           <form onSubmit={handleSubmit}>
