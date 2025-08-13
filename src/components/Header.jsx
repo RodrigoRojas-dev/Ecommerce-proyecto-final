@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import { useAuth } from "../context/AuthContext"
+import { SearchBar } from "./SearchBar"
 
 const Header = () => {
   const { user, logoutUser } = useAuth()
@@ -13,6 +14,7 @@ const Header = () => {
       <div>
         <Link to="/">Home</Link>
       </div>
+      <SearchBar />
       <div>
         {
           user &&
