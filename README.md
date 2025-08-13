@@ -8,6 +8,9 @@ El objetivo de este proyecto es crear una tienda online funcional que implementa
 
 ## Funcionalidades Implementadas
 
+### Funcionalidades de Interfaz de Usuario
+* **Validación de Formularios**: Los formularios del proyecto cuentan con validaciones para asegurar que los datos ingresados sean correctos, proporcionando mensajes de error claros al usuario.
+
 ### Gestión de Usuarios y Autenticación
 
 * **Registro de usuario:** Se implementó un formulario de registro que interactúa directamente con el endpoint de usuarios de la **FakeStoreAPI** para crear nuevos perfiles.
