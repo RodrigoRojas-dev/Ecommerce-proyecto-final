@@ -1,11 +1,17 @@
-import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext"
 import { useProducts } from "../context/ProductContext";
-
+import { useSearch } from "../context/SearchContext"
 
 const Home = () => {
   const { user } = useAuth()
   const { products } = useProducts()
+  const { search } = useSearch()
+
+  const filteredProducts = products.filter(product => {
+    const term = search.toLowerCase();
+    const results = product.title.toLowerCase().includes(term)
+    return results
+  });
 
   return (
     <>
@@ -19,14 +25,24 @@ const Home = () => {
       <section>
         <h2>Nuestros Productos</h2>
         {
-          products.map((product) => <div key={product.id}>
-            <img src={product.image} alt={`Imagen de ${product.title}`} />
-            <h2>{product.title}</h2>
-            <p>${product.price}</p>
-            {
-              user && <button>Añadir al carrito</button>
-            }
-          </div>)
+          filteredProducts.length > 0 ?
+            (filteredProducts.map((product) => <div key={product.id}>
+              <img src={product.image} alt={`Imagen de ${product.title}`} />
+              <h2>{product.title}</h2>
+              <p>${product.price}</p>
+              {
+                user && <button>Añadir al carrito</button>
+              }
+            </div>))
+            :
+            (products.map((product) => <div key={product.id}>
+              <img src={product.image} alt={`Imagen de ${product.title}`} />
+              <h2>{product.title}</h2>
+              <p>${product.price}</p>
+              {
+                user && <button>Añadir al carrito</button>
+              }
+            </div>))
         }
       </section>
     </>

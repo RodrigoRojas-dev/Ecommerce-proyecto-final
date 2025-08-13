@@ -4,8 +4,6 @@ import { useSearch } from "../context/SearchContext"
 const SearchBar = () => {
   const { search, setSearch } = useSearch()
 
-  console.log(search);
-
   return (
     <div>
       <input
