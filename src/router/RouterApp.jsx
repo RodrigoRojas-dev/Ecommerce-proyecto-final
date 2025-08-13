@@ -6,6 +6,7 @@ import { Dashboard } from "../views/Dashboard"
 import { NotFound } from "../views/NotFound"
 import { Layout } from "../components/Layout"
 import { PrivateRoute } from "../components/PrivateRoute"
+import { AboutUs } from "../views/AboutUS"
 
 const RouterApp = () => {
   return (
@@ -15,6 +16,7 @@ const RouterApp = () => {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/sobre-nosotros" element={<AboutUs />} />
           <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
