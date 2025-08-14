@@ -10,6 +10,8 @@ const SearchBar = () => {
         type="text"
         onChange={(e) => setSearch(e.target.value)}
         value={search}
+        placeholder="Buscar Productos..."
+        className="searchbar"
       />
     </div>
   )

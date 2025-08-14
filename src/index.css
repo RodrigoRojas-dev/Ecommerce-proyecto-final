@@ -32,4 +32,5 @@
 
 @import "./styles/components/header.css";
 @import "./styles/components/footer.css";
+@import "./styles/components/searchbar.css";
 @import "./styles/views/home.css";
