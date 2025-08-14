@@ -6,7 +6,7 @@
   /* Grid Products */
 
   .grid-products {
-    @apply grid grid-cols-1 gap-4 m-4 tablet:grid-cols-2 desktop:grid-cols-4
+    @apply grid grid-cols-1 gap-4 m-4 tablet:grid-cols-2 desktop:grid-cols-3
   }
 
   .bg-img {

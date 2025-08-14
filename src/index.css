@@ -5,9 +5,9 @@
   /* BreakePoints Personalizados */
   --breakpoint-tablet: 481px;
   --breakpoint-desktop: 881px;
-
-  /* Colores, Fuentes, etc. Personalizados */
-  --font-inter: 'Inter', sans-serif;
+  --breakpoint-tv: 1136px
+    /* Colores, Fuentes, etc. Personalizados */
+    --font-inter: 'Inter', sans-serif;
 }
 
 @layer base {

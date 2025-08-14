@@ -28,12 +28,12 @@ const Header = () => {
         {
           user &&
           <nav>
-            <ul className="desktop-links gap-3">
+            <ul className="desktop-links">
               <li>
-                <Link to="/dashboard">Dashboard</Link>
+                <Link to="/dashboard" className="btn-navdesk btn-fix">Dashboard</Link>
               </li>
               <li>
-                <button onClick={handleLogout}>Cerrar Sesión</button>
+                <button onClick={handleLogout} className="btn-navdesk">Cerrar Sesión</button>
               </li>
             </ul>
           </nav>
