@@ -1,13 +1,25 @@
 @layer components {
   .main-header {
-    @apply flex items-center justify-between
-    bg-gray-800 p-3
+    @apply flex items-center justify-between bg-gray-800 p-3
   }
 
   .logo-conteiner {
-@apply flex p-0 rounded-full
+    @apply flex p-0 rounded-full
   }
-  .logo{
-    @apply w-32 rounded-full
+
+  .logo {
+    @apply w-20 rounded-full
+  }
+
+  .mobile-menu-btn {
+    @apply desktop:hidden
+  }
+
+  .desktop-nav {
+    @apply hidden desktop:flex
+  }
+
+  .off-canvas-menu{
+    @apply fixed inset-y-26 right-0 w-72 h-dvh bg-gray-900 z-40 transform transition-transform duration-300 ease-in-out desktop:hidden
   }
 }
