@@ -26,41 +26,45 @@ const Login = () => {
 
   return (
     <>
-      <section>
-        <div>
-          <h1>Acceder</h1>
-          <h2>Inicia Sesión para continuar.</h2>
+      <section className="log-conteiner">
+        <div className="login-card">
+          <div className="flex flex-col p-4 gap-2">
+            <h1>Acceder</h1>
+            <h2>Inicia Sesión para continuar.</h2>
+          </div>
+          <div className="cred-conteiner">
+            <h3>Credenciales de prueba:</h3>
+            <p className="flex gap-2 justify-center">
+              <strong>Usuario:</strong>
+              <span>johnd</span>
+            </p>
+            <p className="flex gap-2 justify-center">
+              <strong>Contraseña:</strong>
+              <span>m38rmF$</span>
+            </p>
+          </div>
+          <div className="div-inputs">
+            {
+              errorMessage && <div>
+                <p className="text-red-600 font-bold text-lg">{errorMessage}</p>
+              </div>
+            }
+            <form onSubmit={handleSubmit} className="card-form gap-3">
+              <div className="flex flex-col gap-2">
+                <label className="text-left">Nombre de Usuario</label>
+                <input type="text" onChange={(e) => { setUsername(e.target.value) }} value={username} />
+              </div>
+              <div className="flex flex-col gap-2">
+                <label className="text-left">Contraseña</label>
+                <input type="password" onChange={(e) => { setPassword(e.target.value) }} value={password} />
+              </div>
+              <div className="btn-conteiner-col">
+                <button className="btn btn-updt">Acceder</button>
+                <p>¿No tienes una cuenta? <Link to="/register" className="hover:text-amber-600">Registrate</Link></p>
+              </div>
+            </form>
+          </div>
         </div>
-        <div>
-          <h3>Credenciales de prueba:</h3>
-          <p>
-            <strong>Usuario:</strong>
-            johnd
-          </p>
-          <p>
-            <strong>Contraseña:</strong>
-            m38rmF$
-          </p>
-        </div>
-        {
-          errorMessage && <div>
-            <p>{errorMessage}</p>
-          </div>
-        }
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label>Nombre de Usuario</label>
-            <input type="text" onChange={(e) => { setUsername(e.target.value) }} value={username} />
-          </div>
-          <div>
-            <label>Contraseña</label>
-            <input type="password" onChange={(e) => { setPassword(e.target.value) }} value={password} />
-          </div>
-          <div>
-            <button>Acceder</button>
-            <p>¿No tienes una cuenta? <Link to="/register">Registrate</Link></p>
-          </div>
-        </form>
       </section>
     </>
   )
