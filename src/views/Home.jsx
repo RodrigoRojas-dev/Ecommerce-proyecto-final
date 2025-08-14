@@ -16,7 +16,7 @@ const Home = () => {
   return (
     <>
       <section>
-        <div>
+        <div className="text-center">
           <h1><span className="text-amber-600">Atenas</span> Collection</h1>
           <h2 className="text-gray-400">Donde el estilo es atemporal.</h2>
           <p className="text-gray-400">Una curada selección de moda, joyería y tecnología que celebra la belleza del diseño clásico y moderno.</p>
