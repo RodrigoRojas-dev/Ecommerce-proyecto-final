@@ -1,0 +1,29 @@
+@layer components {
+  .bg-aboutus {
+    @apply bg-gray-800 rounded-2xl p-4
+  }
+
+  .grid-info {
+    @apply grid grid-cols-1 gap-4 m-4 tablet:grid-cols-2 desktop:grid-cols-2
+  }
+
+  .grid-tecno {
+    @apply grid grid-cols-1 gap-4 m-4 tablet:grid-cols-2 desktop:grid-cols-4
+  }
+
+  .title-display {
+    @apply flex flex-col justify-center items-center
+  }
+
+  .btn-2 {
+    @apply flex rounded-3xl hover:cursor-pointer transform hover:-translate-y-1 transition duration-300 ease-in-out
+  }
+
+  .dots {
+    @apply list-disc
+  }
+
+    .grid-cards-about {
+    @apply bg-gray-900 rounded-2xl flex flex-col m-4 items-center justify-center p-4 transform hover:-translate-y-1 transition duration-300 ease-in-out
+  }
+}
