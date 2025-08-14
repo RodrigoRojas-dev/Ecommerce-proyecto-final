@@ -12,7 +12,7 @@
   }
 
   .mobile-menu-btn {
-    @apply desktop:hidden
+    @apply desktop:hidden h-9 flex items-center justify-center border-2 border-white rounded-2xl p-2
   }
 
   .desktop-nav {
@@ -20,7 +20,7 @@
   }
 
   .off-canvas-menu{
-    @apply fixed inset-y-26 right-0 w-72 h-dvh bg-gray-900 z-40 transform transition-transform duration-300 ease-in-out desktop:hidden
+    @apply fixed inset-y-25 right-0 w-72 h-dvh bg-gray-900 z-40 transform transition-transform duration-300 ease-in-out desktop:hidden
   }
 
   .desktop-links {

@@ -5,7 +5,6 @@ const SearchBar = () => {
   const { search, setSearch } = useSearch()
 
   return (
-    <div>
       <input
         type="text"
         onChange={(e) => setSearch(e.target.value)}
@@ -13,7 +12,6 @@ const SearchBar = () => {
         placeholder="Buscar Productos..."
         className="searchbar"
       />
-    </div>
   )
 }
 
