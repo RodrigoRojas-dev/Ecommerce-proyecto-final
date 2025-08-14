@@ -11,9 +11,9 @@ const Header = () => {
   }
 
   return (
-    <header>
+    <header className="main-header">
       <div>
-        <Link to="/"><img src={AtenasCollection} alt="Logo de Atenas Collection" /></Link>
+        <Link to="/" className="logo-conteiner"><img src={AtenasCollection} alt="Logo de Atenas Collection" className="logo"/></Link>
       </div>
       <SearchBar />
       <div>
