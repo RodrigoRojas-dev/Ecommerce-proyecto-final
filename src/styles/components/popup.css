@@ -1,0 +1,22 @@
+@layer components {
+  .popup-container{
+    @apply fixed inset-0 z-50 flex items-center justify-center
+  }
+
+  .bg-card{
+    @apply relative bg-gray-800 flex flex-col justify-center z-50 w-10/12 rounded-2xl max-h-full overflow-y-auto
+  }
+
+  .card-form{
+    @apply flex flex-col justify-center
+  }
+
+  .inputs-form{
+    @apply flex flex-col gap-2 p-2
+  }
+  
+  .overlay{
+    @apply absolute inset-0 bg-gray-900 opacity-75
+  }
+
+}

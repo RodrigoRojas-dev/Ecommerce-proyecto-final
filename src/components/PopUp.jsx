@@ -41,8 +41,10 @@ const PopUp = () => {
     e.preventDefault()
     if (productToEdit) {
       await updateProduct(productToEdit.id, title, price, description, category, image)
+      closePopUp()
     } else {
       await createProduct(title, price, description, category, image)
+      closePopUp()
     }
   }
 
@@ -60,65 +62,67 @@ const PopUp = () => {
   }
 
   return (
-    <section>
-      <div>
-        <h2>
+    <section className="popup-container">
+      <div className="overlay"></div>
+      <div className="bg-card">
+        <div className="p-4">
+          <h2 className="text-center">
+            {
+              productToEdit ? "Actualizar Producto" : "Crear Producto"
+            }
+          </h2>
           {
-            productToEdit ? "Actualizar Producto" : "Crear Producto"
+            errorMessage && <div>
+              <p>{errorMessage}</p>
+            </div>
           }
-        </h2>
-        {
-          errorMessage && <div>
-            <p>{errorMessage}</p>
+          <div>
+            <form onSubmit={handleSubmit} className="card-form">
+              <div className="inputs-form">
+                <label>Nombre del Producto</label>
+                <input type="text"
+                  onChange={(e) => { setTitle(e.target.value) }}
+                  value={title}
+                />
+              </div>
+              <div className="inputs-form">
+                <label>Precio</label>
+                <input type="number"
+                  onChange={(e) => { setPrice(Number(e.target.value)) }}
+                  value={price}
+                />
+              </div>
+              <div className="inputs-form">
+                <label>Descripción</label>
+                <textarea
+                  onChange={(e) => { setDescription(e.target.value) }}
+                  value={description}
+                />
+              </div>
+              <div className="inputs-form">
+                <label>Categoria</label>
+                <input type="text"
+                  onChange={(e) => { setCategory(e.target.value) }}
+                  value={category}
+                />
+              </div>
+              <div className="inputs-form">
+                <label>Imagen</label>
+                <input type="url"
+                  onChange={(e) => { setImage(e.target.value) }}
+                  value={image ?? ""}
+                />
+              </div>
+              <div className="btn-conteiner">
+                <button type="submit" className="btn btn-updt">
+                  {
+                    productToEdit ? "Actualizar" : "Crear"
+                  }
+                </button>
+                <button type="button" onClick={handleCancel} className="btn btn-del">Cancelar</button>
+              </div>
+            </form>
           </div>
-        }
-        <div>
-          <img src={image} alt={`Imagen de ${title}`} />
-          <form onSubmit={handleSubmit}>
-            <div>
-              <label>Nombre del Producto</label>
-              <input type="text"
-                onChange={(e) => { setTitle(e.target.value) }}
-                value={title}
-              />
-            </div>
-            <div>
-              <label>Precio</label>
-              <input type="number"
-                onChange={(e) => { setPrice(Number(e.target.value)) }}
-                value={price}
-              />
-            </div>
-            <div>
-              <label>Descripción</label>
-              <textarea
-                onChange={(e) => { setDescription(e.target.value) }}
-                value={description}
-              />
-            </div>
-            <div>
-              <label>Categoria</label>
-              <input type="text"
-                onChange={(e) => { setCategory(e.target.value) }}
-                value={category}
-              />
-            </div>
-            <div>
-              <label>Imagen</label>
-              <input type="url"
-                onChange={(e) => { setImage(e.target.value) }}
-                value={image ?? ""}
-              />
-            </div>
-            <div>
-              <button type="submit">
-                {
-                  productToEdit ? "Actualizar" : "Crear"
-                }
-              </button>
-              <button type="button" onClick={handleCancel}>Cancelar</button>
-            </div>
-          </form>
         </div>
       </div>
     </section>

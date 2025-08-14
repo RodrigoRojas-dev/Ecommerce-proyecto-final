@@ -27,11 +27,16 @@
   h3 {
     @apply text-2xl font-semibold
   }
+
+  input, textarea {
+    @apply bg-gray-400 border-gray-900 border-3 text-black p-1
+  }
 }
 
 
 @import "./styles/components/header.css";
 @import "./styles/components/footer.css";
 @import "./styles/components/searchbar.css";
+@import "./styles/components/popup.css";
 @import "./styles/views/home.css";
 @import "./styles/views/dashboard.css";
