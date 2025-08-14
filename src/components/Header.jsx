@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import { useAuth } from "../context/AuthContext"
 import { SearchBar } from "./SearchBar"
+import AtenasCollection from "../assets/Atenas-Collection.png"
 
 const Header = () => {
   const { user, logoutUser } = useAuth()
@@ -12,7 +13,7 @@ const Header = () => {
   return (
     <header>
       <div>
-        <Link to="/">Home</Link>
+        <Link to="/"><img src={AtenasCollection} alt="Logo de Atenas Collection" /></Link>
       </div>
       <SearchBar />
       <div>
