@@ -4,11 +4,11 @@ const Footer = () => {
   return (
     <footer className="main-footer">
       <div>
-        <h3>Atenas Collection</h3>
+        <h3 className="h3-footer">Atenas Collection</h3>
         <p>Tu destino de moda en línea, donde la elegancia se encuentra con la atemporalidad.</p>
       </div>
       <div>
-        <h3>Enlaces de Interés</h3>
+        <h3 className="h3-footer">Enlaces de Interés</h3>
         <ul>
           <li><Link to={"/"}>Inicio</Link></li>
           <li><Link to={"/sobre-nosotros"}>Sobre Nosotros</Link></li>
@@ -17,7 +17,7 @@ const Footer = () => {
         </ul>
       </div>
       <div>
-        <h3>Contacto</h3>
+        <h3 className="h3-footer">Contacto</h3>
         <p>Desarrollado por <a href="https://github.com/RodrigoRojas-dev">Rodrigo Rojas</a></p>
         <p>&#xA9; 2025 Atenas Collection. Todos los derechos reservados.</p>
       </div>

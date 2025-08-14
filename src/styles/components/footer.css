@@ -2,7 +2,7 @@
   .main-footer{
     @apply bg-gray-800 text-gray-400 grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3 gap-4 p-4
   }
-  h3{
+  .h3-footer{
     @apply text-amber-600
   }
 }
