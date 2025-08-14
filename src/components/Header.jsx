@@ -75,22 +75,24 @@ const Header = () => {
           {
             user &&
             <nav>
-              <li>
-                <Link to="/dashboard">Dashboard</Link>
-              </li>
-              <li>
-                <button onClick={handleLogout}>Cerrar Sesión</button>
-              </li>
+              <ul className="mobile-nav">
+                <li className="mobile-link">
+                  <Link to="/dashboard">Dashboard</Link>
+                </li>
+                <li className="mobile-link">
+                  <button onClick={handleLogout}>Cerrar Sesión</button>
+                </li>
+              </ul>
             </nav>
           }
           {
             !user &&
             <nav>
-              <ul>
-                <li>
+              <ul className="mobile-nav">
+                <li className="mobile-link">
                   <Link to="/login">Login</Link>
                 </li>
-                <li>
+                <li className="mobile-link">
                   <Link to="/register">Register</Link>
                 </li>
               </ul>
