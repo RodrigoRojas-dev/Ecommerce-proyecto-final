@@ -24,6 +24,9 @@ const Home = () => {
       </section>
       <section className="flex flex-col items-center">
         <h2>Nuestros Productos</h2>
+          {
+            filteredProducts.length === 0 && <p className="text-xl text-red-500">No se encontraron resultados</p>
+          }
         <div className="grid-products">
           {
             filteredProducts.length > 0 ?
