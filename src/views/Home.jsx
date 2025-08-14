@@ -40,7 +40,7 @@ const Home = () => {
                     <p className="precio">${product.price}</p>
                   </div>
                   {
-                    user && <button className="btn-buy">Añadir al carrito</button>
+                    user && <button className="btn btn-buy">Añadir al carrito</button>
                   }
                 </div>
               </div>))
@@ -55,7 +55,7 @@ const Home = () => {
                     <p className="precio">${product.price}</p>
                   </div>
                   {
-                    user && <button className="btn-buy">Añadir al carrito</button>
+                    user && <button className="btn btn-buy">Añadir al carrito</button>
                   }
                 </div>
               </div>))

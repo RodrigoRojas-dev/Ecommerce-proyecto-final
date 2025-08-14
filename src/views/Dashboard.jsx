@@ -14,11 +14,12 @@ const Dashboard = () => {
 
   return (
     <>
-      <section>
-        <button onClick={() => openPopUp()}>Crear Producto Nuevo</button>
+      <section className="flex flex-col items-center my-4">
+        <button onClick={() => openPopUp()} className="btn btn-create ">Crear Producto Nuevo</button>
         <PopUp />
       </section>
-      <section>
+      <section className="flex flex-col items-center">
+        <h2>Productos Listados</h2>
         {
           filteredProducts.length === 0 && <p className="text-xl text-red-500">No se encontraron resultados</p>
         }
@@ -34,9 +35,9 @@ const Dashboard = () => {
                     <h3 className="name">{product.title}</h3>
                     <p className="precio">${product.price}</p>
                   </div>
-                  <div>
-                    <button onClick={() => openToEdit(product)}>Actualizar</button>
-                    <button onClick={() => delProducts(product.id)}>Borrar</button>
+                  <div className="btn-conteiner">
+                    <button onClick={() => openToEdit(product)} className="btn btn-updt">Actualizar</button>
+                    <button onClick={() => delProducts(product.id)} className="btn btn-del">Borrar</button>
                   </div>
                 </div>
               </div>))
@@ -58,7 +59,7 @@ const Dashboard = () => {
               </div>))
           }
         </div>
-      </section>
+      </section >
     </>
   )
 }
