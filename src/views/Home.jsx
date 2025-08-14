@@ -22,7 +22,7 @@ const Home = () => {
           <p className="text-gray-400">Una curada selección de moda, joyería y tecnología que celebra la belleza del diseño clásico y moderno.</p>
         </div>
       </section>
-      <section>
+      <section className="flex flex-col items-center">
         <h2>Nuestros Productos</h2>
         <div className="grid-products">
           {
@@ -32,8 +32,10 @@ const Home = () => {
                   <img src={product.image} alt={`Imagen de ${product.title}`} className="img-cards" />
                 </div>
                 <div className="info-card">
-                  <h3 className="name">{product.title}</h3>
-                  <p className="precio">${product.price}</p>
+                  <div>
+                    <h3 className="name">{product.title}</h3>
+                    <p className="precio">${product.price}</p>
+                  </div>
                   {
                     user && <button className="btn-buy">Añadir al carrito</button>
                   }
@@ -45,8 +47,10 @@ const Home = () => {
                   <img src={product.image} alt={`Imagen de ${product.title}`} className="img-cards" />
                 </div>
                 <div className="info-card">
-                  <h3 className="name">as{product.title}</h3>
-                  <p className="precio">${product.price}</p>
+                  <div>
+                    <h3 className="name">as{product.title}</h3>
+                    <p className="precio">${product.price}</p>
+                  </div>
                   {
                     user && <button className="btn-buy">Añadir al carrito</button>
                   }

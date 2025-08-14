@@ -10,7 +10,7 @@
   }
 
   .bg-img {
-    @apply bg-white w-full rounded-t-2xl flex items-center justify-center p-4
+    @apply bg-white w-full rounded-t-2xl flex items-center justify-center p-4 min-h-72
   }
 
   .grid-cards{
@@ -18,11 +18,11 @@
   }
 
   .img-cards{
-    @apply w-2xs
+    @apply w-2xs min-h-56 max-h-64
   }
 
   .info-card{
-    @apply p-4 flex flex-col
+    @apply p-4 flex flex-col h-full justify-between
   }
 
   .name{
@@ -34,6 +34,6 @@
   }
 
   .btn-buy{
-    @apply bg-green-600 self-center w-11/12 p-4 rounded-3xl
+    @apply bg-green-600 self-center w-11/12 p-4 rounded-3xl m-4
   }
 }
