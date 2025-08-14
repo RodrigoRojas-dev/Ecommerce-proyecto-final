@@ -47,44 +47,50 @@ const Register = () => {
 
   return (
     <>
-      <section>
-        <h1>Registrarse</h1>
-        <h2>Crea tu cuenta para continuar.</h2>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label>Nombre de Usuario</label>
-            <input
-              type="text"
-              onChange={(e) => { setUsername(e.target.value) }}
-              value={username}
-            />
+      <section className="log-conteiner">
+        <div className="login-card">
+          <div className="flex flex-col p-4 gap-2">
+            <h1>Registrarse</h1>
+            <h2>Crea tu cuenta para continuar.</h2>
           </div>
-          <div>
-            <label>Correo Electrónico</label>
-            <input
-              type="email"
-              onChange={(e) => { setEmail(e.target.value) }}
-              value={email}
-            />
+          <div className="div-inputs">
+            {
+              error && <div>
+                <p className="text-red-600 font-bold text-lg">{error}</p>
+              </div>
+            }
+            <form onSubmit={handleSubmit} className="card-form gap-3">
+              <div className="flex flex-col gap-2">
+                <label className="text-left">Nombre de Usuario</label>
+                <input
+                  type="text"
+                  onChange={(e) => { setUsername(e.target.value) }}
+                  value={username}
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <label className="text-left">Correo Electrónico</label>
+                <input
+                  type="email"
+                  onChange={(e) => { setEmail(e.target.value) }}
+                  value={email}
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <label className="text-left">Contraseña</label>
+                <input
+                  type="password"
+                  onChange={(e) => { setPassword(e.target.value) }}
+                  value={password}
+                />
+              </div>
+              <div className="btn-conteiner-col">
+                <button className="btn btn-updt">Registrar</button>
+                <p>¿Ya tienes una cuenta? <Link to="/login" className="hover:text-amber-600">Inicia Sesión</Link></p>
+              </div>
+            </form>
           </div>
-          <div>
-            <label>Contraseña</label>
-            <input
-              type="password"
-              onChange={(e) => { setPassword(e.target.value) }}
-              value={password}
-            />
-          </div>
-          {
-            error && <div>
-              <p>{error}</p>
-            </div>
-          }
-          <div>
-            <button>Registrar</button>
-            <p>¿Ya tienes una cuenta? <Link to="/login">Inicia Sesión</Link></p>
-          </div>
-        </form>
+        </div>
       </section>
     </>
   )

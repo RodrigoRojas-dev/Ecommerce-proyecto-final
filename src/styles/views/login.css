@@ -16,6 +16,6 @@
   }
 
   .btn-conteiner-col{
-    @apply flex flex-col gap-2 mt-2 py-2 items-center
+    @apply flex flex-col gap-2 py-4 items-center
   }
 }
