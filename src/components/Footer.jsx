@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className="main-footer">
       <div>
         <h3>Atenas Collection</h3>
         <p>Tu destino de moda en línea, donde la elegancia se encuentra con la atemporalidad.</p>
@@ -18,9 +18,9 @@ const Footer = () => {
       </div>
       <div>
         <h3>Contacto</h3>
-        <p>Desarrollado por <a href="https://github.com/RodrigoRojas-dev">Gabriel Alberini</a></p>
+        <p>Desarrollado por <a href="https://github.com/RodrigoRojas-dev">Rodrigo Rojas</a></p>
+        <p>&#xA9; 2025 Atenas Collection. Todos los derechos reservados.</p>
       </div>
-      <p>&#xA9; 2025 Atenas Collection. Todos los derechos reservados.</p>
     </footer>
   )
 }

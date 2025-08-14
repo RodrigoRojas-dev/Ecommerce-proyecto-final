@@ -11,22 +11,24 @@
 }
 
 @layer base {
-body {
-  font-family: var(--font-inter);
-  @apply text-gray-50 bg-gray-900 leading-relaxed
+  body {
+    font-family: var(--font-inter);
+    @apply text-gray-50 bg-gray-900 leading-relaxed
+  }
+
+  h1 {
+    @apply text-4xl font-extrabold
+  }
+
+  h2 {
+    @apply text-3xl font-bold
+  }
+
+  h3 {
+    @apply text-2xl font-semibold
+  }
 }
 
-h1 {
-  @apply text-4xl font-extrabold
-}
 
-h2 {
-  @apply text-3xl font-bold
-}
-
-h3 {
-  @apply text-2xl font-semibold
-}
-}
-
-@import "./styles/components/header.css"
+@import "./styles/components/header.css";
+@import "./styles/components/footer.css";
