@@ -44,10 +44,10 @@ const Header = () => {
           <nav>
             <ul className="desktop-links gap-3">
               <li>
-                <Link to="/login">Login</Link>
+                <Link to="/login" className="btn-navdesk">Login</Link>
               </li>
               <li>
-                <Link to="/register">Register</Link>
+                <Link to="/register" className="btn-navdesk">Register</Link>
               </li>
             </ul>
           </nav>
