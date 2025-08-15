@@ -20,7 +20,7 @@ const Login = () => {
 
   useEffect(() => {
     if (user) {
-      navigate("/")
+      navigate("/Ecommerce-proyecto-final")
     }
   }, [user, navigate])
 

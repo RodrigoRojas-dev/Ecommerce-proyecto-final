@@ -10,7 +10,7 @@ const Footer = () => {
       <div>
         <h3 className="h3-footer">Enlaces de Interés</h3>
         <ul>
-          <li><Link to={"/"} className="link-footer">Inicio</Link></li>
+          <li><Link to={"/Ecommerce-proyecto-final"} className="link-footer">Inicio</Link></li>
           <li><Link to={"/sobre-nosotros"} className="link-footer">Sobre Nosotros</Link></li>
           <li><Link to={"/login"} className="link-footer">Iniciar Sesión</Link></li>
           <li><Link to={"/register"} className="link-footer">Registrarse</Link></li>

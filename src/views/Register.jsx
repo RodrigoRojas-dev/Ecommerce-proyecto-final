@@ -38,7 +38,7 @@ const Register = () => {
     const isRegister = await registerUser(username, email, password)
 
     if (isRegister) {
-      navigate("/")
+      navigate("/Ecommerce-proyecto-final")
     } else {
       setError("El registro falló. Revisa tus datos y vuelve a intentarlo.");
       setPassword("")

@@ -13,7 +13,7 @@ const RouterApp = () => {
     <BrowserRouter>
       <Layout>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/Ecommerce-proyecto-final" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/sobre-nosotros" element={<AboutUs />} />

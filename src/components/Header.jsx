@@ -18,7 +18,7 @@ const Header = () => {
     <header className="main-header">
       {/* Logo */}
       <div>
-        <Link to="/" className="logo-conteiner"><img src={AtenasCollection} alt="Logo de Atenas Collection" className="logo" /></Link>
+        <Link to="/Ecommerce-proyecto-final" className="logo-conteiner"><img src={AtenasCollection} alt="Logo de Atenas Collection" className="logo" /></Link>
       </div>
 
       <SearchBar />
