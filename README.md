@@ -28,3 +28,27 @@ A diferencia de la plantilla base, este proyecto se ha desarrollado desde cero u
     * `createProduct(product)`: Envía una solicitud para crear un nuevo producto.
     * `updateProduct(id, title, price, description, category, image)`: Permite actualizar un producto existente.
     * `delProduct(id)`: Elimina un producto de la base de datos.
+
+---
+
+### Instrucciones para Ejecutar Localmente
+
+Sigue estos pasos para ejecutar el proyecto en tu máquina:
+
+1.  **Clona el repositorio**:
+    ```bash
+    git clone https://github.com/RodrigoRojas-dev/Ecommerce-proyecto-final
+    ```
+
+2.  **Instala las dependencias**:
+    ```bash
+    npm install
+    ```
+
+3.  **Inicia el proyecto**:
+    ```bash
+    npm run dev
+    ```
+
+4.  **Accede al sitio**:
+    Abre tu navegador y visita `http://localhost:3000` (o el puerto que te indique la terminal).
