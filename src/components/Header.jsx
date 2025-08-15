@@ -11,6 +11,7 @@ const Header = () => {
 
   const handleLogout = () => {
     logoutUser()
+    setIsMenuOpen(!isMenuOpen)
   }
 
   return (
@@ -54,7 +55,7 @@ const Header = () => {
       </div>
 
       {/*BurgerMenu */}
-      <div className="mobile-menu-btn z-50">
+      <div className="mobile-menu-btn z-50 px-1 py-1">
         <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
           {
             isMenuOpen
@@ -77,10 +78,10 @@ const Header = () => {
             <nav>
               <ul className="mobile-nav">
                 <li className="mobile-link">
-                  <Link to="/dashboard">Dashboard</Link>
+                  <Link to="/dashboard" className="link-a" onClick={() => setIsMenuOpen(!isMenuOpen)}>Dashboard</Link>
                 </li>
                 <li className="mobile-link">
-                  <button onClick={handleLogout}>Cerrar Sesión</button>
+                  <button onClick={handleLogout} className="link-a">Cerrar Sesión</button>
                 </li>
               </ul>
             </nav>
@@ -90,10 +91,10 @@ const Header = () => {
             <nav>
               <ul className="mobile-nav">
                 <li className="mobile-link">
-                  <Link to="/login">Login</Link>
+                  <Link to="/login" className="link-a" onClick={() => setIsMenuOpen(!isMenuOpen)}>Login</Link>
                 </li>
                 <li className="mobile-link">
-                  <Link to="/register">Register</Link>
+                  <Link to="/register" className="link-a" onClick={() => setIsMenuOpen(!isMenuOpen)}>Register</Link>
                 </li>
               </ul>
             </nav>
